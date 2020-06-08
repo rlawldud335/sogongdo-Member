@@ -24,9 +24,9 @@ public class updatecontroller extends HttpServlet{
 		int rs = memberdao.update(req.getParameter("ri"),dto);
 		PrintWriter out = resp.getWriter();
 		if(rs==1){
-			out.print("<script>alert('성공적으로 수정되었습니다');window.opener.location.reload(); window.close(); </script>");
+			out.print("<script>alert('성공적으로 수정되었습니다');window.opener.location.reload(); history.back(); </script>");
 		}else{
-			out.print("<script>alert('수정이 실패하였습니다');window.opener.location.reload();window.close();  </script>");
+			out.print("<script>alert('수정이 실패하였습니다');window.opener.location.reload();history.back();  </script>");
 		}
 	}
 }

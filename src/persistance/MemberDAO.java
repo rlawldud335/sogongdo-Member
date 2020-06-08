@@ -84,6 +84,26 @@ public class MemberDAO {
 		return member;
 	}
 	
+	public ArrayList<String> selectid(){
+		Connection conn = null;
+		Statement st= null;
+		ResultSet rs = null;
+		String sql = "SELECT Member_ID FROM °´¼Ò¸ðµ¨.member";
+		ArrayList<String> ids = new ArrayList<String>();
+		try {
+			conn = ds.getConnection();
+			st = conn.createStatement();
+			rs = st.executeQuery(sql);
+			while (rs.next()) {
+				ids.add(rs.getString("Member_ID"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ids;
+	}
+	
 	//delete	
 	public int delete(String[] id){
 		if(id.length <= 0){
